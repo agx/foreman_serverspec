@@ -1,0 +1,23 @@
+<table id='report_log' class="<%= table_css_classes %>">
+  <thead>
+    <tr>
+      <th><%= _("Status") %></th>
+      <th><%= _("Description") %></th>
+      <th><%= _("File") %></th>
+      <th><%= _("Line") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% examples.each do |example| %>
+    <tr>
+      <td><span <%= status_tag example.status %>><%= h example.status %></span></td>
+      <td class="break-me"><%= h example.full_description %></td>
+      <td class="break-me"><%= h example.file_path %></td>
+      <td class="break-me"><%= h example.line_number %></td>
+      </tr>
+    <% end %>
+    <tr id='ntsh' <%= "style='display: none;'".html_safe if examples.size > 0%>><td colspan="3">
+        <%= _("Nothing to show") %>
+      </td></tr>
+  </tbody>
+</table>
